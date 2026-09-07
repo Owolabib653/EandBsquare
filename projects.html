@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Projects | E &amp; B Square Properties Limited</title>
+<meta name="description" content="Browse E & B Square Properties' portfolio — residential, commercial, industrial and infrastructure projects delivered across Lagos, Abuja, Ogun, Enugu and Port Harcourt." />
+<meta property="og:title" content="Projects | E & B Square Properties Limited" />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&family=Manrope:wght@500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="antialiased" data-page="projects">
+
+<div id="siteNav"></div>
+
+<!-- FEATURED PROJECTS -->
+<section id="projects" class="pt-36 pb-28 dm-surface">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="flex flex-wrap items-end justify-between gap-6 mb-12">
+      <div class="max-w-xl">
+        <p class="level-line font-utility text-[var(--gold)] tracking-[0.3em] text-xs font-semibold mb-6">FEATURED PROJECTS</p>
+        <h2 class="reveal font-display font-bold text-3xl sm:text-4xl">A portfolio built on delivery.</h2>
+      </div>
+      <div class="flex flex-wrap gap-2" id="projectFilters">
+        <button class="filter-btn active font-utility text-xs font-semibold px-4 py-2 rounded-full border dm-border" data-filter="all">All</button>
+        <button class="filter-btn font-utility text-xs font-semibold px-4 py-2 rounded-full border dm-border" data-filter="Residential">Residential</button>
+        <button class="filter-btn font-utility text-xs font-semibold px-4 py-2 rounded-full border dm-border" data-filter="Commercial">Commercial</button>
+        <button class="filter-btn font-utility text-xs font-semibold px-4 py-2 rounded-full border dm-border" data-filter="Infrastructure">Infrastructure</button>
+        <button class="filter-btn font-utility text-xs font-semibold px-4 py-2 rounded-full border dm-border" data-filter="Industrial">Industrial</button>
+      </div>
+    </div>
+
+    <div id="projectsGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" class="py-28" style="background:var(--gray);">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <p class="level-line font-utility text-[var(--gold)] tracking-[0.3em] text-xs font-semibold mb-6">GALLERY</p>
+    <h2 class="font-display font-bold text-3xl sm:text-4xl mb-12">On site, in progress, and completed.</h2>
+    <div class="columns-2 md:columns-3 gap-4 space-y-4" id="galleryMasonry"></div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="py-28 dm-surface">
+  <div class="max-w-4xl mx-auto px-6 lg:px-10 text-center">
+    <p class="font-utility text-[var(--gold)] tracking-[0.3em] text-xs font-semibold mb-6">CLIENT TESTIMONIALS</p>
+    <h2 class="font-display font-bold text-3xl sm:text-4xl mb-14">Trusted by the people we build for.</h2>
+
+    <div class="relative min-h-[260px]" id="testiWrap"></div>
+    <div class="flex justify-center gap-2 mt-8" id="testiDots"></div>
+  </div>
+</section>
+
+<div id="siteFooter"></div>
+
+<button id="backToTop" aria-label="Back to top" class="fixed bottom-7 right-7 w-11 h-11 rounded-full bg-[var(--navy)] text-white flex items-center justify-center shadow-xl z-40 hover:bg-[var(--gold)] transition-colors">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+
+<script src="js/site.js"></script>
+<script>
+var projects = [
+  ["Lekki Waterfront Residences","Residential","Lagos","Mar 2025","A 40-unit luxury residential estate with integrated smart-home infrastructure.","https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"],
+  ["Abuja Corporate Tower","Commercial","Abuja","Nov 2024","A 14-storey Grade-A office tower delivered for a multinational tenant.","https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80"],
+  ["Ogun Industrial Park Phase II","Industrial","Ogun State","Jul 2025","220,000 sq ft of warehousing and light-manufacturing facilities.","https://images.unsplash.com/photo-1590496793929-36417d3117de?auto=format&fit=crop&w=800&q=80"],
+  ["Port Harcourt Access Road","Infrastructure","Port Harcourt","Jan 2025","6.4km of urban road and drainage infrastructure completed ahead of schedule.","https://images.unsplash.com/photo-1592928038288-9a9e731a0b3f?auto=format&fit=crop&w=800&q=80"],
+  ["Ikeja Retail Plaza","Commercial","Lagos","Sep 2024","A three-level retail plaza with 60+ leasable commercial units.","https://images.unsplash.com/photo-1481253127861-534498168948?auto=format&fit=crop&w=800&q=80"],
+  ["Enugu Housing Estate","Residential","Enugu","May 2025","A 120-home affordable housing development for a state government client.","https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=800&q=80"]
+];
+var projectsGrid = document.getElementById('projectsGrid');
+function renderProjects(filter){
+  projectsGrid.innerHTML = projects.filter(function(p){ return filter==='all'||p[1]===filter; }).map(function(p){
+    return '<div class="reveal in group cursor-pointer">' +
+      '<div class="relative overflow-hidden cut-corner h-64">' +
+      '<img src="' + p[5] + '" alt="' + p[0] + '" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">' +
+      '<div class="absolute top-3 left-3 bg-[var(--navy)]/90 text-white text-[11px] font-utility font-semibold px-3 py-1 rounded-full">' + p[1] + '</div>' +
+      '</div>' +
+      '<div class="pt-4">' +
+      '<h3 class="font-display font-semibold text-base mb-1">' + p[0] + '</h3>' +
+      '<p class="text-xs font-utility text-[var(--steel)] mb-2">' + p[2] + ' • Completed ' + p[3] + '</p>' +
+      '<p class="text-sm text-[var(--steel)]">' + p[4] + '</p>' +
+      '</div></div>';
+  }).join('');
+}
+renderProjects('all');
+document.querySelectorAll('.filter-btn').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+    renderProjects(btn.dataset.filter);
+  });
+});
+
+var galleryImgs = [
+  "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=600&q=80",
+  "https://images.unsplash.com/photo-1590644365607-1c5a92d10c25?auto=format&fit=crop&w=600&q=80",
+  "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=80",
+  "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=600&q=80",
+  "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80",
+  "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80",
+  "https://images.unsplash.com/photo-1592928038288-9a9e731a0b3f?auto=format&fit=crop&w=600&q=80",
+  "https://images.unsplash.com/photo-1590496793929-36417d3117de?auto=format&fit=crop&w=600&q=80"
+];
+document.getElementById('galleryMasonry').innerHTML = galleryImgs.map(function(src,i){
+  return '<img src="' + src + '" loading="lazy" alt="Gallery image ' + (i+1) + '" class="w-full rounded-lg break-inside-avoid hover:opacity-90 transition-opacity" style="height:' + (180 + (i%3)*70) + 'px; object-fit:cover;">';
+}).join('');
+
+var testimonials = [
+  ["Adaeze Okonkwo","Director, Meridian Real Estate","E & B Square Properties delivered our 40-unit estate two weeks ahead of schedule without cutting a single corner on quality. They communicate like partners, not contractors."],
+  ["Tunde Bakare","Facilities Manager, Ogun State Govt.","The road project came in on budget and the drainage work has held up through two rainy seasons already. That's the kind of reliability we needed."],
+  ["Grace Emeka","COO, Bakare Retail Group","From the first site visit to final handover, their project management team kept us informed every step. Genuinely impressive attention to detail."]
+];
+var testiWrap = document.getElementById('testiWrap');
+var testiDots = document.getElementById('testiDots');
+var testiIndex = 0;
+function renderTesti(){
+  testiWrap.innerHTML = '<div class="reveal in">' +
+    '<div class="text-[var(--gold)] text-lg mb-6">★★★★★</div>' +
+    '<p class="text-xl sm:text-2xl font-display font-medium leading-relaxed mb-8">"' + testimonials[testiIndex][2] + '"</p>' +
+    '<p class="font-semibold">' + testimonials[testiIndex][0] + '</p>' +
+    '<p class="text-sm text-[var(--steel)]">' + testimonials[testiIndex][1] + '</p></div>';
+  testiDots.innerHTML = testimonials.map(function(_,i){
+    return '<button class="w-2.5 h-2.5 rounded-full ' + (i===testiIndex?'bg-[var(--gold)]':'bg-[var(--steel)]/30') + '" data-i="' + i + '"></button>';
+  }).join('');
+  testiDots.querySelectorAll('button').forEach(function(b){
+    b.addEventListener('click', function(){ testiIndex = +b.dataset.i; renderTesti(); });
+  });
+}
+renderTesti();
+setInterval(function(){ testiIndex = (testiIndex + 1) % testimonials.length; renderTesti(); }, 6000);
+</script>
+</body>
+</html>

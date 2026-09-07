@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Blog &amp; FAQ | E &amp; B Square Properties Limited</title>
+<meta name="description" content="Construction insights and industry news from E & B Square Properties Limited — plus answers to frequently asked questions about our services, timelines and process." />
+<meta property="og:title" content="Blog & FAQ | E & B Square Properties Limited" />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&family=Manrope:wght@500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="antialiased" data-page="blog">
+
+<div id="siteNav"></div>
+
+<!-- BLOG -->
+<section id="blog" class="pt-36 pb-28 dm-surface">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <p class="level-line font-utility text-[var(--gold)] tracking-[0.3em] text-xs font-semibold mb-6">INSIGHTS</p>
+    <h2 class="font-display font-bold text-3xl sm:text-4xl mb-12">Construction insights &amp; industry news.</h2>
+    <div class="grid md:grid-cols-3 gap-8" id="blogGrid"></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="py-28" style="background:var(--gray);">
+  <div class="max-w-3xl mx-auto px-6 lg:px-10">
+    <p class="level-line font-utility text-[var(--gold)] tracking-[0.3em] text-xs font-semibold mb-6">FAQ</p>
+    <h2 class="font-display font-bold text-3xl sm:text-4xl mb-12">Frequently asked questions.</h2>
+    <div id="faqList" class="space-y-3"></div>
+  </div>
+</section>
+
+<div id="siteFooter"></div>
+
+<button id="backToTop" aria-label="Back to top" class="fixed bottom-7 right-7 w-11 h-11 rounded-full bg-[var(--navy)] text-white flex items-center justify-center shadow-xl z-40 hover:bg-[var(--gold)] transition-colors">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+
+<script src="js/site.js"></script>
+<script>
+var blog = [
+  ["5 Signs Your Building Needs Structural Renovation","Engineering Tips","https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=80"],
+  ["What to Expect During a Commercial Build Timeline","Construction Insights","https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80"],
+  ["Nigeria's Infrastructure Outlook for the Year Ahead","Industry News","https://images.unsplash.com/photo-1592928038288-9a9e731a0b3f?auto=format&fit=crop&w=600&q=80"]
+];
+document.getElementById('blogGrid').innerHTML = blog.map(function(b){
+  return '<a href="#" class="group block">' +
+    '<div class="overflow-hidden rounded-lg h-52 mb-4"><img src="' + b[2] + '" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"></div>' +
+    '<p class="text-xs font-utility font-semibold text-[var(--gold)] mb-2">' + b[1] + '</p>' +
+    '<h3 class="font-display font-semibold leading-snug group-hover:text-[var(--gold)] transition-colors">' + b[0] + '</h3></a>';
+}).join('');
+
+var faqs = [
+  ["How long does a typical residential build take?","Timelines vary with scope, but a standard family home typically takes 6–9 months from groundbreaking to handover, with a fixed schedule agreed at contract signing."],
+  ["Do you handle government and public sector projects?","Yes. We are a registered contractor with experience delivering infrastructure and public building projects for state and federal agencies."],
+  ["Can you manage the full process, including design?","Yes — our project management and architecture teams can take a project from concept design through construction and handover under one contract."],
+  ["What areas do you operate in?","We are based in Lagos and actively deliver projects across Nigeria, with completed work in Lagos, Abuja, Ogun, Enugu and Port Harcourt."],
+  ["How do I request a quote?","Use the contact form or call our office directly — we'll typically respond with a scoped estimate within one business day."]
+];
+document.getElementById('faqList').innerHTML = faqs.map(function(f){
+  return '<div class="accordion border dm-border rounded-lg bg-white dm-card-bg overflow-hidden">' +
+    '<button class="faq-toggle w-full flex items-center justify-between text-left px-6 py-5 font-medium">' +
+    '<span>' + f[0] + '</span>' +
+    '<span class="faq-chevron text-[var(--gold)] text-xl leading-none">+</span></button>' +
+    '<div class="faq-panel px-6"><p class="text-sm text-[var(--steel)] pb-5">' + f[1] + '</p></div></div>';
+}).join('');
+document.querySelectorAll('.faq-toggle').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var acc = btn.parentElement;
+    var wasOpen = acc.classList.contains('open');
+    document.querySelectorAll('.accordion').forEach(function(a){ a.classList.remove('open'); });
+    if(!wasOpen) acc.classList.add('open');
+  });
+});
+</script>
+</body>
+</html>

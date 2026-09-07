@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Our Services | E &amp; B Square Properties Limited</title>
+<meta name="description" content="Explore E & B Square Properties' full range of services — residential, commercial, industrial and civil construction, road building, project management, architecture and more." />
+<meta property="og:title" content="Services | E & B Square Properties Limited" />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&family=Manrope:wght@500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="antialiased" data-page="services">
+
+<div id="siteNav"></div>
+
+<!-- SERVICES -->
+<section id="services" class="pt-36 pb-28" style="background:var(--gray);">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="max-w-2xl mb-16">
+      <p class="level-line font-utility text-[var(--gold)] tracking-[0.3em] text-xs font-semibold mb-6">WHAT WE DO</p>
+      <h2 class="reveal font-display font-bold text-3xl sm:text-4xl mb-4">Full-service construction, from foundation to finish.</h2>
+      <p class="reveal reveal-delay-1 text-[var(--steel)]">Twelve disciplines, one accountable team — so you never manage more than one contractor.</p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" id="servicesGrid"></div>
+  </div>
+</section>
+
+<div id="siteFooter"></div>
+
+<button id="backToTop" aria-label="Back to top" class="fixed bottom-7 right-7 w-11 h-11 rounded-full bg-[var(--navy)] text-white flex items-center justify-center shadow-xl z-40 hover:bg-[var(--gold)] transition-colors">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+
+<script src="js/site.js"></script>
+<script>
+var services = [
+  ["service-residential","Residential Construction","Custom homes and residential estates built to last, from design through handover.","🏠"],
+  ["service-commercial","Commercial Construction","Offices, retail spaces and mixed-use developments delivered on schedule.","🏢"],
+  ["service-industrial","Industrial Construction","Warehouses, factories and industrial facilities engineered for heavy use.","🏭"],
+  ["service-civil","Civil Engineering","Site works, drainage and structural engineering for complex builds.","📐"],
+  ["service-road","Road Construction","Roads, drainage systems and access infrastructure built to specification.","🛣️"],
+  ["service-renovation","Building Renovation","Structural upgrades and refurbishments that extend a building's life.","🔨"],
+  ["service-project-mgmt","Project Management","End-to-end oversight of budget, schedule and quality on every site.","📋"],
+  ["service-structural","Structural Engineering","Design and analysis ensuring every structure is safe and sound.","🏗️"],
+  ["service-architecture","Architecture","Functional, striking design tailored to how the space will be used.","✏️"],
+  ["service-interior","Interior Finishing","Fit-outs and finishing work with a premium, durable standard.","🎨"],
+  ["service-property","Property Development","Full-cycle development from land acquisition to sale-ready asset.","🏘️"],
+  ["service-maintenance","Maintenance Services","Scheduled maintenance keeping buildings safe and operational.","🛠️"]
+];
+document.getElementById('servicesGrid').innerHTML = services.map(function(s,i){
+  return '<div id="' + s[0] + '" class="reveal reveal-delay-' + (i%4) + ' service-card bg-white border border-[#eee] rounded-xl p-7 cut-corner-sm">' +
+    '<div class="w-12 h-12 rounded-lg bg-[var(--gold)]/10 flex items-center justify-center text-2xl mb-5">' + s[3] + '</div>' +
+    '<h3 class="font-display font-semibold text-lg mb-2">' + s[1] + '</h3>' +
+    '<p class="text-sm text-[var(--steel)] leading-relaxed mb-5">' + s[2] + '</p>' +
+    '<a href="contact.html" class="text-sm font-utility font-semibold text-[var(--gold)] inline-flex items-center gap-1.5 hover:gap-2.5 transition-all">Request a Quote →</a></div>';
+}).join('');
+</script>
+</body>
+</html>

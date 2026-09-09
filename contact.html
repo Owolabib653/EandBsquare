@@ -12,6 +12,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&family=Manrope:wght@500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="Logo.png" type="image/png">
 </head>
 <body class="antialiased" data-page="contact">
 
@@ -54,22 +55,25 @@
       </div>
     </div>
 
-    <form class="p-8 rounded-xl border dm-border space-y-4 bg-white dm-card-bg" onsubmit="event.preventDefault(); this.reset(); alert('Message sent — thank you, we will be in touch shortly.');">
+    <form id="web3form" action="https://api.web3forms.com/submit" method="POST" class="p-8 rounded-xl border dm-border space-y-4 bg-white dm-card-bg">
+      <input type="hidden" name="access_key" value="5a908072-6874-4960-b782-72e069152bc5">
+      <input type="hidden" name="email" value="owolabib653@gmail.com">
+      <input type="hidden" name="subject" value="New Quote Request — E & B Square Properties">
       <div class="grid sm:grid-cols-2 gap-4">
-        <input required placeholder="Full Name" class="w-full border dm-border rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-[var(--gold)]">
-        <input required type="email" placeholder="Email Address" class="w-full border dm-border rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-[var(--gold)]">
+        <input required name="name" placeholder="Full Name" class="w-full border dm-border rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-[var(--gold)]">
+        <input required type="email" name="your_email" placeholder="Email Address" class="w-full border dm-border rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-[var(--gold)]">
       </div>
-      <input placeholder="Phone Number" class="w-full border dm-border rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-[var(--gold)]">
-      <select class="w-full border dm-border rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-[var(--gold)] text-[var(--steel)]">
-        <option>Select a Service</option>
-        <option>Residential Construction</option>
-        <option>Commercial Construction</option>
-        <option>Civil Engineering</option>
-        <option>Project Management</option>
-        <option>Other</option>
+      <input name="phone" placeholder="Phone Number" class="w-full border dm-border rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-[var(--gold)]">
+      <select name="service" class="w-full border dm-border rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-[var(--gold)] text-[var(--steel)]">
+        <option value="">Select a Service</option>
+        <option value="Residential Construction">Residential Construction</option>
+        <option value="Commercial Construction">Commercial Construction</option>
+        <option value="Civil Engineering">Civil Engineering</option>
+        <option value="Project Management">Project Management</option>
+        <option value="Other">Other</option>
       </select>
-      <textarea required placeholder="Tell us about your project" rows="5" class="w-full border dm-border rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-[var(--gold)]"></textarea>
-      <button class="btn-gold w-full font-utility font-semibold py-3.5 cut-corner-sm">Send Message</button>
+      <textarea required name="message" placeholder="Tell us about your project" rows="5" class="w-full border dm-border rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-[var(--gold)]"></textarea>
+      <button type="submit" class="btn-gold w-full font-utility font-semibold py-3.5 cut-corner-sm">Send Message</button>
     </form>
   </div>
 </section>
@@ -81,5 +85,30 @@
 </button>
 
 <script src="js/site.js"></script>
+<script>
+document.getElementById('web3form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  var btn = this.querySelector('button[type="submit"]');
+  var orig = btn.textContent;
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+  try {
+    var res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: new FormData(this)
+    });
+    if (res.ok) {
+      alert('Message sent — thank you, we will be in touch shortly.');
+      this.reset();
+    } else {
+      alert('Something went wrong. Please try again or call us directly.');
+    }
+  } catch (err) {
+    alert('Something went wrong. Please try again or call us directly.');
+  }
+  btn.textContent = orig;
+  btn.disabled = false;
+});
+</script>
 </body>
 </html>

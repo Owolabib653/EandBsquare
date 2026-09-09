@@ -61,7 +61,7 @@
       '<header id="siteNav" class="component-nav' + (currentPage !== 'home' ? ' solid' : '') + '">' +
       '  <div class="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between h-20">' +
       '    <a href="index.html" class="flex items-center gap-2.5">' +
-      '      <img src="Logo.jfif" alt="E &amp; B Square Properties logo" class="w-9 h-9 object-contain" loading="eager">' +
+      '      <img src="Logo.png" alt="E &amp; B Square Properties logo" class="w-9 h-9 object-contain" loading="eager">' +
       '      <span class="font-display font-bold text-white text-lg tracking-tight nav-brand">E&amp;B <span class="font-normal opacity-80 text-sm hidden sm:inline">SQUARE PROPERTIES LTD</span></span>' +
       '    </a>' +
       '    <nav class="hidden lg:flex items-center gap-8 font-utility text-sm text-white/90">' +
@@ -98,7 +98,7 @@
       '  <div class="max-w-7xl mx-auto px-6 lg:px-10 grid md:grid-cols-4 gap-10 mb-14">' +
       '    <div>' +
       '      <div class="flex items-center gap-2.5 mb-4">' +
-      '        <img src="Logo.jfif" alt="E &amp; B Square Properties logo" class="w-9 h-9 object-contain" loading="lazy">' +
+      '        <img src="Logo.png" alt="E &amp; B Square Properties logo" class="w-9 h-9 object-contain" loading="lazy">' +
       '        <span class="font-display font-bold text-lg">E&amp;B Square Properties</span>' +
       '      </div>' +
       '      <p class="text-white/60 text-sm leading-relaxed mb-5">Building excellence and delivering quality across Nigeria for over 20 years.</p>' +

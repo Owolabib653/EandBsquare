@@ -101,7 +101,7 @@
       '        <img src="Logo.png" alt="E &amp; B Square Properties logo" class="w-9 h-9 object-contain" loading="lazy">' +
       '        <span class="font-display font-bold text-lg">E&amp;B Square Properties</span>' +
       '      </div>' +
-      '      <p class="text-white/60 text-sm leading-relaxed mb-5">Building excellence and delivering quality across Nigeria for over 20 years.</p>' +
+      '      <p class="text-white/60 text-sm leading-relaxed mb-5">Building excellence and delivering quality across Nigeria for over Almost 20 years.</p>' +
       '    </div>' +
       '    <div>' +
       '      <p class="font-utility font-semibold text-sm mb-4 tracking-wide">QUICK LINKS</p>' +

@@ -131,7 +131,7 @@
       '    </div>' +
       '  </div>' +
       '  <div class="max-w-7xl mx-auto px-6 lg:px-10 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-white/45">' +
-      '    <p>© <span id="year"></span> E &amp; B Square Properties Limited. All rights reserved.</p>' +
+      '    <p>© <span id="year"></span> E&amp;B Square Properties Limited. All rights reserved.</p>' +
       '    <div class="flex gap-6"><a href="#" class="hover:text-white/80">Privacy Policy</a><a href="#" class="hover:text-white/80">Terms &amp; Conditions</a></div>' +
       '  </div>' +
       '</footer>';
